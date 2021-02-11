@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;500;700&display=swap");
+/**********************
+
+****    GENERAL   ****
+
+*********************/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root {
+  --select-border: rgb(51, 173, 255);
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  font-family: "Heebo", sans-serif;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.5rem;
+  color: #fff;
+  background: antiquewhite;
+}
+.container {
+  max-width: 602px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  transition: background 0.7s linear;
+}
+.container.green-background {
+  background-color: greenyellow;
+  pointer-events: none;
+}
+.container.red-background {
+  background-color: lightcoral;
+  pointer-events: none;
+}
+ul#keyboard {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+li {
+  background-color: deeppink;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border: 1px solid;
+  border-radius: 8px;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: background 0.5s linear;
+}
+li:hover {
+  background-color: hotpink;
+}
+div#top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+button.start-game {
+  outline: none;
+  background: darkorange;
+  box-shadow: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  transition: background 0.7s linear;
+}
+button.start-game:hover {
+  background: darkgreen;
+}
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+select::-ms-expand {
+  display: none;
+}
+.select {
+  align-items: center;
+  display: grid;
+  grid-template-areas: "select";
+  width: 250px;
+  border: 1px solid var(--select-border);
+  border-radius: 8px;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.25rem;
+  justify-content: space-evenly;
+  cursor: pointer;
+  margin: 0 auto;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
+.select::after {
+  content: "";
+  width: 0.8rem;
+  height: 0.5rem;
+  background-color: var(--select-arrow);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  justify-self: flex-end;
+}
+/* .select::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.5rem;
+} */
+select,
+.select:after,
+.select:before {
+  grid-area: select;
+}
+select:focus {
+  border: none;
+  outline: none;
+}
+li.replay {
+  flex: 1;
+  background: darkcyan;
+}
