@@ -23,17 +23,17 @@ body {
   flex-direction: column;
   font-size: 1.5rem;
   color: #fff;
-  background: antiquewhite;
+  background: #efefef;
+  transition: background 0.7s linear;
 }
 .container {
   max-width: 602px;
   display: flex;
   flex-direction: column;
   border-radius: 15px;
-  transition: background 0.7s linear;
 }
-.container.green-background {
-  background-color: greenyellow;
+body.green-background {
+  background-color: #2de51f;
   pointer-events: none;
 }
 .container.red-background {
@@ -43,26 +43,34 @@ body {
 ul#keyboard {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-between;
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
 }
 li {
-  background-color: deeppink;
   list-style: none;
   display: flex;
+  font-size: 5rem;
+  background: blanchedalmond;
+  font-weight: 700;
   justify-content: center;
   align-items: center;
-  width: 70px;
-  height: 70px;
-  border: 1px solid;
+  width: 104px;
+  height: 104px;
+  border: 8px solid;
   border-radius: 8px;
   margin: 0.5rem;
   cursor: pointer;
   transition: background 0.5s linear;
+  box-shadow: inset 0 0 5px #000000;
+  text-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
 li:hover {
-  background-color: hotpink;
+  background-color: rgb(255, 214, 235);
+}
+li:active {
+  transform: scale(0.98);
 }
 div#top {
   display: flex;
@@ -72,19 +80,23 @@ div#top {
 }
 button.start-game {
   outline: none;
-  background: darkorange;
+  background-image: url(./pics/820.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   box-shadow: none;
   border: none;
   color: white;
+  height: 124px;
+  width: 345px;
   cursor: pointer;
   padding: 1rem 1.5rem;
   font-size: 1.5rem;
   letter-spacing: 1px;
   border-radius: 8px;
-  transition: background 0.7s linear;
+  transition: transform 0.7s ease-in-out;
 }
 button.start-game:hover {
-  background: darkgreen;
+  transform: translateY(-8px);
 }
 select {
   appearance: none;
@@ -142,4 +154,64 @@ select:focus {
 li.replay {
   flex: 1;
   background: darkcyan;
+  font-size: 1.7rem;
+  color: white;
+}
+.mover {
+  animation: mover 0.7s forwards alternate;
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: translateY(7px);
+  }
+}
+.red {
+  color: #ff0000;
+}
+.orange {
+  color: #ffa500;
+}
+.crimson {
+  color: crimson;
+}
+.deeppink {
+  color: deeppink;
+}
+.yellow {
+  color: #bfbf08;
+}
+.deepskyblue {
+  color: deepskyblue;
+}
+.green {
+  color: #008000;
+}
+.cornflowerblue {
+  color: cornflowerblue;
+}
+.blue {
+  color: #0000ff;
+}
+.brown {
+  color: brown;
+}
+.purple {
+  color: #4b0082;
+}
+
+.vaiolet {
+  color: #ee82ee;
+}
+.black {
+  color: #000;
+}
+.white {
+  color: #fff;
 }

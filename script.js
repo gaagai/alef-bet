@@ -5,6 +5,7 @@ const $language = document.getElementById("language")
 const $audioTag = document.getElementById("audio")
 const $container = document.querySelector(".container")
 const $startBTN = document.querySelector(".start-game")
+const $body = document.body
 // Constants
 const letters = [
   "א",
@@ -61,6 +62,23 @@ const sounds = {
     ת: "./sounds/taf.ogg",
   },
 }
+const colors = [
+  "brown",
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+  "vaiolet",
+  "white",
+  "crimson",
+  "cornflowerblue",
+  "deeppink",
+  "deepskyblue",
+  "black",
+]
+
 // Play selected sounds
 const playSound = (selectedLang, sound) => {
   console.log(sound)
@@ -75,6 +93,7 @@ const playSounds = (number) => {
     playSound($language.value, number)
   }, 1750)
 }
+// Start The Game
 const startTheGame = ($event) => {
   const isStartButton = $event.target.localName === "button"
   if (isStartButton) {
@@ -82,7 +101,7 @@ const startTheGame = ($event) => {
     return playSounds(conrrectAnswer)
   }
 }
-
+// Select an Answer
 const selectAnswer = ($event) => {
   const isLiElement = $event.target.localName === "li"
   const isReplay = $event.target.dataset.id === "replay"
@@ -99,13 +118,13 @@ const selectAnswer = ($event) => {
   console.log("S", currentSelectedAnswer, "C", correctAnswer)
 
   if (currentSelectedAnswer === correctAnswer) {
-    $container.classList.add("green-background")
-
+    // $container.classList.add("green-background")
+    $body.classList.add("green-background")
     $audioTag.src = sounds.correct
     $audioTag.play()
 
     setTimeout(() => {
-      $container.classList.remove("green-background")
+      $body.classList.remove("green-background")
       createBoard()
     }, 1000)
   } else {
@@ -138,14 +157,17 @@ const createBoard = () => {
   $keyboard.innerHTML = ""
   $header.innerHTML = ""
   const random = Math.floor(Math.random() * 22)
+  // const randomColor = Math.floor(Math.random() * 7)
   // console.log(random)
   $keyboard.dataset.answer = letters[random]
+
   // $keyboard.dataset.numAnswer = random
 
   playSounds(letters[random])
   const randomLetter = shuffle(letters)
   randomLetter.forEach((letter) => {
     const liElement = document.createElement("li")
+    liElement.classList.add(colors[Math.floor(Math.random() * 14)])
     liElement.innerText = letter
     liElement.dataset.id = letter
     $keyboard.appendChild(liElement)
@@ -158,8 +180,9 @@ const createBoard = () => {
 
   const playButton = document.createElement("BUTTON")
   playButton.classList.add("start-game")
+  // playButton.classList.add("mover")
   playButton.dataset.id = "start-game"
-  playButton.innerHTML = "התחל משחק"
+  // playButton.innerHTML = "התחל משחק"
   $header.appendChild(playButton)
 }
 createBoard()
