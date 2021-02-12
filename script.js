@@ -167,7 +167,7 @@ const createBoard = () => {
   const randomLetter = shuffle(letters)
   randomLetter.forEach((letter) => {
     const liElement = document.createElement("li")
-    liElement.classList.add(colors[Math.floor(Math.random() * 14)])
+    liElement.classList.add(colors[Math.floor(Math.random() * 13)])
     liElement.innerText = letter
     liElement.dataset.id = letter
     $keyboard.appendChild(liElement)

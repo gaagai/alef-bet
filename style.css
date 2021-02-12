@@ -153,9 +153,18 @@ select:focus {
 }
 li.replay {
   flex: 1;
-  background: darkcyan;
   font-size: 1.7rem;
-  color: white;
+  color: crimson;
+  border: 0;
+  background: transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 74px;
+  border-color: transparent transparent transparent crimson;
+  cursor: pointer;
+  border-style: dashed;
+  border-width: 37px 0 37px 60px;
+  box-shadow: none;
 }
 .mover {
   animation: mover 0.7s forwards alternate;
