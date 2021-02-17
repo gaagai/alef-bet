@@ -49,6 +49,7 @@ ul#keyboard {
   margin: 0;
 }
 li {
+  /* animation: opas 0.5s forwards alternate; */
   list-style: none;
   display: flex;
   font-size: 5rem;
@@ -93,7 +94,7 @@ button.start-game {
   font-size: 1.5rem;
   letter-spacing: 1px;
   border-radius: 8px;
-  transition: transform 0.7s ease-in-out;
+  transition: transform 1.5s ease-in;
 }
 button.start-game:hover {
   transform: translateY(-8px);
@@ -179,6 +180,17 @@ li.replay {
   }
   100% {
     transform: translateY(7px);
+  }
+}
+@keyframes opas {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
 .red {

@@ -36,7 +36,32 @@ const sounds = {
   wrong: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/250758/wronganswer.mp3",
   correct:
     "https://s3-us-west-2.amazonaws.com/s.cdpn.io/250758/rightanswer.mp3",
-  he: {
+  1: {
+    where: "./sounds/where.ogg",
+    א: "./sounds/alef.ogg",
+    ב: "./sounds/bet.ogg",
+    ג: "./sounds/gimel.ogg",
+    ד: "./sounds/daled.ogg",
+    ה: "./sounds/hey.ogg",
+    ו: "./sounds/vav.ogg",
+    ז: "./sounds/zain.ogg",
+    ח: "./sounds/chet.ogg",
+    ט: "./sounds/tet.ogg",
+    י: "./sounds/yud.ogg",
+    כ: "./sounds/kaf.ogg",
+    ל: "./sounds/lamed.ogg",
+    מ: "./sounds/mem.ogg",
+    נ: "./sounds/noon.ogg",
+    ס: "./sounds/samech.ogg",
+    ע: "./sounds/ayin.ogg",
+    פ: "./sounds/pay.ogg",
+    צ: "./sounds/tzadi.ogg",
+    ק: "./sounds/kuf.ogg",
+    ר: "./sounds/resh.ogg",
+    ש: "./sounds/shin.ogg",
+    ת: "./sounds/taf.ogg",
+  },
+  2: {
     where: "./sounds/where.ogg",
     א: "./sounds/alef.ogg",
     ב: "./sounds/bet.ogg",
@@ -159,12 +184,19 @@ const createBoard = () => {
   const random = Math.floor(Math.random() * 22)
   // const randomColor = Math.floor(Math.random() * 7)
   // console.log(random)
+
   $keyboard.dataset.answer = letters[random]
 
   // $keyboard.dataset.numAnswer = random
-
   playSounds(letters[random])
-  const randomLetter = shuffle(letters)
+  let randomLetters = (letters) => {}
+
+  let randomLetter = letters
+  if ($language.value === "2") {
+    randomLetter = shuffle(letters)
+  } else {
+    randomLetter = letters
+  }
   randomLetter.forEach((letter) => {
     const liElement = document.createElement("li")
     liElement.classList.add(colors[Math.floor(Math.random() * 13)])
@@ -197,3 +229,4 @@ const audio = document.createElement("audio")
 // Event listeners
 $keyboard.addEventListener("click", selectAnswer)
 $header.addEventListener("click", startTheGame)
+// $language.addEventListener("change", createBoard)
