@@ -165,7 +165,11 @@ const selectAnswer = ($event) => {
   }
 }
 // Shuffle numbers
-const shuffle = (numberArray) => {
+function shuffle(numberArray, letters) {
+  if ($language.value === "1") {
+    console.log(letters)
+    return letters
+  }
   let counter = numberArray.length
   while (counter > 0) {
     let index = Math.floor(Math.random() * counter)
@@ -176,6 +180,9 @@ const shuffle = (numberArray) => {
   }
   return numberArray
 }
+// const  = () => {
+
+// }
 
 // Create Board
 const createBoard = () => {
@@ -189,14 +196,11 @@ const createBoard = () => {
 
   // $keyboard.dataset.numAnswer = random
   playSounds(letters[random])
-  let randomLetters = (letters) => {}
 
-  let randomLetter = letters
-  if ($language.value === "2") {
-    randomLetter = shuffle(letters)
-  } else {
-    randomLetter = letters
-  }
+  let templetters = [...letters]
+
+  const randomLetter = shuffle(templetters, letters)
+
   randomLetter.forEach((letter) => {
     const liElement = document.createElement("li")
     liElement.classList.add(colors[Math.floor(Math.random() * 13)])
@@ -229,4 +233,4 @@ const audio = document.createElement("audio")
 // Event listeners
 $keyboard.addEventListener("click", selectAnswer)
 $header.addEventListener("click", startTheGame)
-// $language.addEventListener("change", createBoard)
+$language.addEventListener("change", shuffle)
